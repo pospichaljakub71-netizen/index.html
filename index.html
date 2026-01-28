@@ -26,14 +26,27 @@
   #message {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: red;
     font-size: 100px;
     font-weight: bold;
     text-align: center;
-    cursor: pointer; /* aby bylo jasné, že jde kliknout */
+    cursor: pointer;
+  }
+
+  #subtext {
+    display: none;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-size: 25px;
+    opacity: 0.8;
+    text-align: center;
+    cursor: pointer;
   }
 
   #start {
@@ -53,6 +66,7 @@
 
 <div id="start">CLICK TO START</div>
 <div id="message">PRESS ESC</div>
+<div id="subtext">or click</div>
 
 <script>
 let running = false;
@@ -81,12 +95,14 @@ document.getElementById("start").onclick = async () => {
     popups.forEach(p => p.remove());
 
     const msg = document.getElementById("message");
-    msg.style.display = "block";
+    const sub = document.getElementById("subtext");
 
-    // Mobilní kliknutí přímo na text PRESS ESC
-    msg.onclick = () => {
-      window.location.href = "about:blank";
-    };
+    msg.style.display = "block";
+    sub.style.display = "block";
+
+    // Mobilní kliknutí přímo na text
+    msg.onclick = () => window.location.href = "about:blank";
+    sub.onclick = () => window.location.href = "about:blank";
 
   }, 10000);
 };
