@@ -33,6 +33,7 @@
     font-size: 100px;
     font-weight: bold;
     text-align: center;
+    cursor: pointer; /* aby bylo jasné, že jde kliknout */
   }
 
   #start {
@@ -79,7 +80,14 @@ document.getElementById("start").onclick = async () => {
 
     popups.forEach(p => p.remove());
 
-    document.getElementById("message").style.display = "block";
+    const msg = document.getElementById("message");
+    msg.style.display = "block";
+
+    // Mobilní kliknutí přímo na text PRESS ESC
+    msg.onclick = () => {
+      window.location.href = "about:blank";
+    };
+
   }, 10000);
 };
 
@@ -105,14 +113,6 @@ document.addEventListener("keydown", e => {
     window.location.href = "about:blank";
   }
 });
-// Mobilní kliknutí = ukončení
-document.addEventListener("click", () => {
-  const msg = document.getElementById("message");
-  if (msg.style.display === "block") {
-    window.location.href = "about:blank";
-  }
-});
-
 </script>
 
 </body>
