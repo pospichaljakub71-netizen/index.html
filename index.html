@@ -105,6 +105,14 @@ document.addEventListener("keydown", e => {
     window.location.href = "about:blank";
   }
 });
+// Mobilní kliknutí = ukončení
+document.addEventListener("click", () => {
+  const msg = document.getElementById("message");
+  if (msg.style.display === "block") {
+    window.location.href = "about:blank";
+  }
+});
+
 </script>
 
 </body>
